@@ -7,7 +7,7 @@ WORKDIR /app
 
 # ENV PATH /app/node_modules/.bin:$PATH
 
-# COPY package.json ./
+# COPY package.json .ko/
 # COPY package-lock.json ./
 # RUN npm install --silent
 
@@ -15,3 +15,13 @@ WORKDIR /app
 
 # start app
 # CMD ["npm", "start"]
+
+#https://mherman.org/blog/dockerizing-a-react-app/
+
+
+# production environment
+#FROM nginx:stable-alpine
+#COPY --from=build /app/build /usr/share/nginx/html
+#EXPOSE 80
+#CMD ["nginx", "-g", "daemon off;"]
+# docker build -f Dockerfile.prod -t sample:prod .
