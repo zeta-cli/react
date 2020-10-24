@@ -14,17 +14,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+
+// @ts-check
 import { getUser, setUser, removeUser } from './user.service';
 
 const authService = {
 
   isAuthenticated() {
-    return getUser() ? true : false;
+    return !!getUser();
   },
 
   /**
    * Auth service
+   *
    * @param {{email: string, password: string}} credentials Credential
+   * @returns {Promise<import('./user.service').User>} User
    */
   async auth(credentials) {
     if (credentials.email === 'hermosilla.antonio@gmail.com' && credentials.password === '1234') {
@@ -33,11 +37,16 @@ const authService = {
     return null;
   },
 
+  /**
+   * Data
+   *
+   * @returns {Promise} Promise
+   */
   async signOut() {
     if (authService.isAuthenticated) {
       removeUser();
     }
-  }
+  },
 
 };
 

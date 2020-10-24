@@ -4,6 +4,11 @@ import LoginPage from './pages/login.page';
 import { LogoutPage } from './pages/logout.page';
 import './public.layout.css';
 
+/**
+ * Public Navigation Bar
+ *
+ * @returns {object} navbar react component
+ */
 function PublicNavbar() {
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
@@ -11,21 +16,38 @@ function PublicNavbar() {
         <a className="navbar-brand p-0" href="/public">
           <h3 className="pl-2 font-weight-bold title d-inline-block pb-0 pt-1">Zeta</h3>
         </a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <Link to="/public" className="nav-link">Home <span className="sr-only">(current)</span></Link>
+              <Link to="/public" className="nav-link">
+                Home
+                <span className="sr-only">(current)</span>
+              </Link>
             </li>
             <li className="nav-item">
               <Link to="/public/login" className="nav-link">Login</Link>
             </li>
             <li className=" nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="/public" id="navbarDropdown" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a
+                className="nav-link dropdown-toggle"
+                href="/public"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
                 Dropdown
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -45,6 +67,11 @@ function PublicNavbar() {
   );
 }
 
+/**
+ * Public footer
+ *
+ * @returns {object} footer public react component
+ */
 function PublicFooter() {
   return (
     <div className="footer bg-dark">
@@ -66,26 +93,31 @@ function PublicFooter() {
   );
 }
 
+/**
+ * Public layout
+ *
+ * @returns {object} Public layout
+ */
 export default function PublicLayout() {
   return (
     <div>
 
       {/* Navbar -------------------------------------------------------------------------------- */}
 
-      <PublicNavbar></PublicNavbar>
+      <PublicNavbar />
 
       {/* Container ----------------------------------------------------------------------------- */}
 
       <div className="container">
         <Switch>
-          <Route exact path="*/login" component={LoginPage}></Route>
-          <Route exact path="*/logout" component={LogoutPage}></Route>
+          <Route exact path="*/login" component={LoginPage} />
+          <Route exact path="*/logout" component={LogoutPage} />
         </Switch>
       </div>
 
       {/* Footer -------------------------------------------------------------------------------- */}
 
-      <PublicFooter></PublicFooter>
+      <PublicFooter />
 
     </div>
   );

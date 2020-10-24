@@ -37,7 +37,7 @@ const sessionService = {
   /**
    * Get session.
    *
-   * @returns {Object} Session object.
+   * @returns {object} Session object.
    */
   getSession() {
     if (!localStorage.getItem(APP_SESSION)) {
@@ -49,6 +49,7 @@ const sessionService = {
 
   /**
    * Set session.
+   *
    * @param {object} session Session
    */
   setSession(session) {
@@ -57,16 +58,17 @@ const sessionService = {
 
   /**
    * Get data from session user
+   *
    * @param {object} key Key
-   * @return {object} Value
+   * @returns {object} Value
    */
   getFromSession(key) {
     return sessionService.getSession()[key];
   },
 
-
   /**
    * Save data in session user
+   *
    * @param {object} data New object to save
    */
   setInSession(data) {
@@ -75,14 +77,15 @@ const sessionService = {
 
   /**
    * Remove from session.
+   *
    * @param {string} key Remove key from session.
    */
   removeFromSession(key) {
     sessionService.setInSession({ [key]: undefined });
-  }
+  },
 };
 
-export const setInSession = sessionService.setInSession;
-export const getFromSession = sessionService.getFromSession;
-export const removeFromSession = sessionService.removeFromSession;
+export const { setInSession } = sessionService;
+export const { getFromSession } = sessionService;
+export const { removeFromSession } = sessionService;
 export default sessionService;

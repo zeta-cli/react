@@ -10,13 +10,13 @@ import { PrivateRoute } from './modules/zeta-auth';
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/public" component={PublicLayout}></Route>
-      <PrivateRoute path="/admin" component={AdminLayout}></PrivateRoute>
-      <PrivateRoute path="/" component={WorkbenchLayout}></PrivateRoute>
-      <Route component={ErrorLayout}></Route>
+      <Route path="/public" component={PublicLayout} />
+      <PrivateRoute path="/admin" component={AdminLayout} />
+      <PrivateRoute path="/" component={WorkbenchLayout} />
+      <Route component={ErrorLayout} />
     </Switch>
   </BrowserRouter>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // @types/webpack-env

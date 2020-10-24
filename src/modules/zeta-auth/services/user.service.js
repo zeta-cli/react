@@ -15,20 +15,29 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/* eslint valid-jsdoc: off */
+// @ts-check
+
+/**
+ * Application User.
+ *
+ * @typedef {object} User
+ * @property {string} username Username.
+ * @property {string} jwt Json Web Token
+ * @property {Array} roles User's roles.
+ * @property {Date} [lastUpdate] Last update.
+ */
 
 import { setInSession, getFromSession, removeFromSession } from './session.service';
 
 /**
  * Set User
- * @param {{username: string, jwt: string, roles: Array, lastUpdate?: object}} user User object
- * @returns {object} User Information
+ *
+ * @param {User} user User object
+ * @returns {User} User Information
  */
 export function setUser(user) {
   if (user && typeof user === 'object') {
-    Object.assign(user, {
-      lastUpdate: new Date()
-    });
+    Object.assign(user, { lastUpdate: new Date() });
     setInSession({ user });
     return user;
   }
@@ -37,12 +46,14 @@ export function setUser(user) {
 
 /**
  * Get User
- * @returns {object} User Information
+ *
+ * @returns {User} User Information
  */
 export const getUser = () => getFromSession('user');
 
 /**
  * Remove user
- * @returns {object} Session
+ *
+ * @returns {void}
  */
 export const removeUser = () => removeFromSession('user');
