@@ -8,13 +8,13 @@ import authService from '../services/auth.service';
  * @param {*} param0 Component parameter
  * @returns {object} Private Route react component
  */
-export default function PrivateRoute({ component: Component, ...rest }) {
+export default function PrivateRoute({ component: Component, path }) {
   return (
     <Route
-      {...rest}
+      path={path}
       render={(props) => (
         authService.isAuthenticated() === true
-          ? <Component {...props} />
+          ? <Component path={path} />
           : <Redirect to={{ pathname: '/public/login', state: { from: props.location } }} />
       )}
     />

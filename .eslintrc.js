@@ -22,6 +22,6 @@ module.exports = {
   rules: {
     'max-len': ['error', { code: 120 }],
     'react/prop-types': [0],
-    'require-jsdoc': ['error'],
+    // 'jsdoc/valid-types': 0,
   },
 };
